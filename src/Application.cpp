@@ -77,8 +77,8 @@ int Application::m_Main()
     Image img({0, 0}, {500, 600}, "test.jpeg");
 
     Specimen spec;
-    spec.InitGenome(50);
-    spec.Generate({500, 500});
+    spec.InitGenome(1);
+    spec.Generate({500, 600});
     img.SetTexture(spec.GetTexture());
 
     double t = glfwGetTime();
@@ -95,6 +95,11 @@ int Application::m_Main()
 
         m_window.SwapBuffers();
 
+        if (m_window.KeyPressed(GLFW_KEY_N) == ButtonState::HOLD) {
+            spec.InitGenome(5000);
+            spec.Generate({500, 600});
+            img.SetTexture(spec.GetTexture());
+        }
 
         frameCount++;
         double nt = glfwGetTime();

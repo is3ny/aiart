@@ -18,6 +18,7 @@ public:
 private:
     // For each circle: it's position, radius, and color
     static const size_t COMP_COUNT = 6;
+    size_t m_circleCount;
     std::vector<GLfloat> m_genome;
 
     std::vector<Texture> m_buf{2};
